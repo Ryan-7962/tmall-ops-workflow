@@ -9,5 +9,8 @@
   "lingyang_days": 7,
   "required_windows": ["1d", "3d", "7d", "14d", "30d"],
   "page_node_id": "REPLACE_WITH_EXISTING_WORKBUDDY_PAGE_NODE_ID",
-  "report_title": "天猫旗舰店·经营日报"
+  "report_title": "天猫旗舰店·经营日报",
+  "dashboard_url": "https://example.com/replace-with-fixed-dashboard",
+  "wecom_cli": "wecom-cli",
+  "chat_allowed_groups": ["REPLACE_WITH_ALLOWED_GROUP_NAME"]
 }

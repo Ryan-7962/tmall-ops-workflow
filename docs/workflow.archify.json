@@ -25,7 +25,9 @@
     {"id": "protect", "type": "security", "label": "发布保护", "sublabel": "失败停止·无变化跳过", "stage": 3, "row": 4, "tag": "可逆"},
     {"id": "dashboard", "type": "cloud", "label": "固定线上看板", "sublabel": "原链接更新并回读验证", "stage": 4, "row": 0, "tag": "保留页面壳"},
     {"id": "analysis", "type": "external", "label": "AI经营分析", "sublabel": "异常解释·洞察·动作建议", "stage": 4, "row": 2, "tag": "不重算事实"},
-    {"id": "previous", "type": "cloud", "label": "线上上一版", "sublabel": "错误数据不覆盖", "stage": 4, "row": 4, "tag": "稳定可用"}
+    {"id": "previous", "type": "cloud", "label": "线上上一版", "sublabel": "错误数据不覆盖", "stage": 4, "row": 4, "tag": "稳定可用"},
+    {"id": "chatbot", "type": "backend", "label": "群聊问数引擎", "sublabel": "只读查询·固定指标·看板链接", "stage": 3, "row": 6, "tag": "同一事实源"},
+    {"id": "group", "type": "external", "label": "企业微信群", "sublabel": "宿主触发提问·CLI回复", "stage": 4, "row": 6, "tag": "群内直接问"}
   ],
   "flows": [
     {"id": "source-increment", "from": "qwen", "to": "ingest", "label": "增量CSV与JSON", "variant": "emphasis"},
@@ -37,7 +39,10 @@
     {"id": "gate-report", "from": "gate", "to": "report", "label": "同源数据结果"},
     {"id": "report-analysis", "from": "report", "to": "analysis", "label": "日报与异常"},
     {"id": "gate-protect", "from": "gate", "to": "protect", "label": "失败或没变化", "variant": "security"},
-    {"id": "protect-previous", "from": "protect", "to": "previous", "label": "保留可用版本", "variant": "security"}
+    {"id": "protect-previous", "from": "protect", "to": "previous", "label": "保留可用版本", "variant": "security"},
+    {"id": "gate-chatbot", "from": "gate", "to": "chatbot", "label": "同源已校验事实", "variant": "emphasis"},
+    {"id": "group-question", "from": "group", "to": "chatbot", "label": "群提问由宿主触发"},
+    {"id": "chatbot-answer", "from": "chatbot", "to": "group", "label": "CLI Markdown回复", "variant": "emphasis"}
   ],
   "cards": [
     {
@@ -56,6 +61,15 @@
         "缺失不填零，不跨终端或归属口径拼接",
         "TOP榜不冒充全量，窗口汇总不均摊成日事实",
         "每次入库和发布都有校验与回读证据"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "群内问数",
+      "items": [
+        "群成员直接问经营、ROI、新鲜度和看板链接",
+        "机器人只读同一事实库，不开放自由SQL",
+        "企业微信CLI负责发送，群消息由宿主触发"
       ]
     }
   ]
