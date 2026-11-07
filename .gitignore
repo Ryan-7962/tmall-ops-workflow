@@ -1,0 +1,11 @@
+pipeline_config.json
+__pycache__/
+*.py[cod]
+*.db
+*.db-*
+data/
+state/
+dashboard/data/
+dashboard/dashboard-online.html
+.archify/
+.DS_Store
