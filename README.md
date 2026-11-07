@@ -106,7 +106,7 @@ AI 不再承担机械搬运和重复计算，转而做异常解释、经营洞�
 | SQLite | 本地唯一事实库，保存日事实、业务主键、来源文件和归因修订 |
 | HTML + ECharts | 固定展示模板，由数据库生成数据块后打包 |
 | WorkBuddy Library Page | 既有固定页面的最小差异更新、发布和回读验证 |
-| GitHub Actions | 推送后自动运行核心单元测试 |
+| GitHub Actions | 可选 CI 示例，启用后自动运行核心单元测试 |
 | Archify | 工作流交互架构图的源文件与渲染工具 |
 
 ---
@@ -174,8 +174,8 @@ docs/
   OPERATIONS.md           # 每日运行、排障与发布保护
   QWEN_DAILY_TASK.md      # 可直接交给取数 Agent 的任务书
   workflow.archify.json   # Archify 数据流图源文件
+  github-actions-test.yml # 可选 CI 配置示例
 pipeline_config.example.json
-.github/workflows/test.yml
 ```
 
 ---
