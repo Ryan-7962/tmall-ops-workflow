@@ -114,8 +114,8 @@ class DailyPipelineTest(unittest.TestCase):
         master_csv = workbench / "product_master_snapshot_2026-01-01.csv"
         master_csv.write_text(
             "﻿product_id,product_name,category_id,category_name,image_url,list_date,product_status,source_status\n"
-            "111,六神艾叶沐浴露,213205,,//img.example/a.jpg,,online,当前在线\n"
-            "222,六神香氛沐浴露柚子玫瑰,213205,,//img.example/b.jpg,,online,当前在线\n",
+            "111,示例经典沐浴露,213205,,//img.example/a.jpg,,online,当前在线\n"
+            "222,示例香氛沐浴露,213205,,//img.example/b.jpg,,online,当前在线\n",
             encoding="utf-8",
         )
         report = pipeline.ingest_product_master(self.connection, self.root / "tmall-workbench")
@@ -137,7 +137,7 @@ class DailyPipelineTest(unittest.TestCase):
         pipeline.enrich_window_items(self.connection, windows)
         items = windows["7d"]["items"]
         # 缺失才补：111 补 title/img；222 已有不覆盖；333 无主数据保持缺失
-        self.assertEqual(items[0]["title"], "六神艾叶沐浴露")
+        self.assertEqual(items[0]["title"], "示例经典沐浴露")
         self.assertEqual(items[0]["img"], "//img.example/a.jpg")
         self.assertEqual(items[1]["title"], "已有标题")
         self.assertEqual(items[1]["img"], "//img.example/old.jpg")
