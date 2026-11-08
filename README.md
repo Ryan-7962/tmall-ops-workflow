@@ -46,6 +46,7 @@ flowchart LR
   E -->|失败或无变化| J[保留线上上一版]
 ```
 
+- [交互式 Archify 完整架构图](docs/workflow.html)（下载后用浏览器打开）
 - [Archify 流程图源文件](docs/workflow.archify.json)
 - [群聊问数机器人](docs/GROUP_CHAT_BOT.md)
 - [数据契约](docs/DATA_CONTRACT.md)

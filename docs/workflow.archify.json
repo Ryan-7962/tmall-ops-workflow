@@ -16,18 +16,18 @@
   ],
   "nodes": [
     {"id": "qwen", "type": "external", "label": "千问取数", "sublabel": "生意参谋·万相台·羚羊", "stage": 0, "row": 1, "tag": "只补增量"},
-    {"id": "ingest", "type": "backend", "label": "增量接入", "sublabel": "文件哈希与业务主键", "stage": 1, "row": 0, "tag": "重复跳过"},
-    {"id": "facts", "type": "database", "label": "SQLite事实库", "sublabel": "日事实·维度·归因修订", "stage": 1, "row": 2, "tag": "唯一事实源"},
-    {"id": "compute", "type": "backend", "label": "确定性计算", "sublabel": "月度·同比·ROI·商品聚合", "stage": 2, "row": 0, "tag": "固定代码"},
+    {"id": "ingest", "type": "backend", "label": "增量接入", "sublabel": "文件哈希与业务主键", "stage": 1, "row": 1, "tag": "重复跳过"},
+    {"id": "facts", "type": "database", "label": "SQLite事实库", "sublabel": "日事实·维度·归因修订", "stage": 1, "row": 3, "tag": "唯一事实源"},
+    {"id": "compute", "type": "backend", "label": "确定性计算", "sublabel": "月度·同比·ROI·商品聚合", "stage": 2, "row": 3, "tag": "固定代码"},
     {"id": "gate", "type": "security", "label": "质量门禁", "sublabel": "新鲜度·覆盖率·跨表对账", "stage": 2, "row": 2, "tag": "不填零"},
     {"id": "html", "type": "frontend", "label": "单文件看板", "sublabel": "固定模板与两段业务数据", "stage": 3, "row": 0, "tag": "脚本生成"},
-    {"id": "report", "type": "backend", "label": "经营日报", "sublabel": "与看板使用同一事实源", "stage": 3, "row": 2, "tag": "自动复核"},
+    {"id": "report", "type": "backend", "label": "经营日报", "sublabel": "与看板使用同一事实源", "stage": 3, "row": 1, "tag": "自动复核"},
     {"id": "protect", "type": "security", "label": "发布保护", "sublabel": "失败停止·无变化跳过", "stage": 3, "row": 4, "tag": "可逆"},
     {"id": "dashboard", "type": "cloud", "label": "固定线上看板", "sublabel": "原链接更新并回读验证", "stage": 4, "row": 0, "tag": "保留页面壳"},
-    {"id": "analysis", "type": "external", "label": "AI经营分析", "sublabel": "异常解释·洞察·动作建议", "stage": 4, "row": 2, "tag": "不重算事实"},
+    {"id": "analysis", "type": "external", "label": "AI经营分析", "sublabel": "异常解释·洞察·动作建议", "stage": 4, "row": 1, "tag": "不重算事实"},
     {"id": "previous", "type": "cloud", "label": "线上上一版", "sublabel": "错误数据不覆盖", "stage": 4, "row": 4, "tag": "稳定可用"},
-    {"id": "chatbot", "type": "backend", "label": "群聊问数引擎", "sublabel": "只读查询·固定指标·看板链接", "stage": 3, "row": 6, "tag": "同一事实源"},
-    {"id": "group", "type": "external", "label": "企业微信群", "sublabel": "宿主触发提问·CLI回复", "stage": 4, "row": 6, "tag": "群内直接问"}
+    {"id": "chatbot", "type": "backend", "label": "群聊问数引擎", "sublabel": "只读查询·固定指标·看板链接", "stage": 3, "row": 2, "tag": "同一事实源"},
+    {"id": "group", "type": "external", "label": "企业微信群", "sublabel": "宿主触发提问·CLI回复", "stage": 4, "row": 2, "tag": "群内直接问"}
   ],
   "flows": [
     {"id": "source-increment", "from": "qwen", "to": "ingest", "label": "增量CSV与JSON", "variant": "emphasis"},
